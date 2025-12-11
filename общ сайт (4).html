@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Écru School — Курсы и направления</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#071935;
+    --card:#0f2746;
+    --accent:#ffd26a;
+    --muted:#bfcfe0;
+    --glass:rgba(255,255,255,0.04);
+    --radius:14px;
+    --max-width:1100px;
+    font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:linear-gradient(180deg,var(--bg),#04162a);color:var(--muted);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--max-width);margin:0 auto;padding:32px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .logo-row{display:flex;align-items:center;gap:14px}
+  .logo img{width:72px;height:72px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+  .brand{line-height:1}
+  .brand h1{margin:0;color:var(--accent);font-size:20px}
+  .brand p{margin:0;font-size:13px;color:var(--muted)}
+  nav{display:flex;gap:12px;flex-wrap:wrap;}
+  .nav-link{background:transparent;border:1px solid transparent;padding:10px 14px;border-radius:12px;color:var(--muted);font-weight:600;cursor:pointer}
+  .nav-link:hover{border-color:rgba(255,210,106,0.12)}
+  .hero{display:flex;gap:28px;margin-top:28px;align-items:center}
+  .hero-left{flex:1}
+  .headline{font-size:36px;color:#fff;margin:0 0 8px 0}
+  .sub{color:var(--muted);margin-bottom:12px}
+  .age-pill{display:inline-block;padding:8px 12px;background:var(--glass);border-radius:999px;color:var(--accent);font-weight:700;margin-top:8px}
+  .tabs{margin-top:22px;background:linear-gradient(90deg,rgba(255,255,255,0.02),transparent);padding:12px;border-radius:12px;display:flex;gap:10px;flex-wrap:wrap;}
+  .tab-btn{padding:10px 14px;border-radius:10px;background:transparent;border:none;color:var(--muted);cursor:pointer;font-weight:600}
+  .tab-btn.active{background:linear-gradient(90deg,#0c3a6b,#06305a);color:var(--accent);box-shadow:0 6px 18px rgba(0,0,0,0.5)}
+  .content{margin-top:18px;display:grid;grid-template-columns:1fr 360px;gap:24px}
+  .panel{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+  .panel h3{margin:0 0 8px 0;color:#fff}
+  .panel p{color:var(--muted);line-height:1.5}
+  .list{margin-top:12px;display:flex;flex-direction:column;gap:10px}
+  .item{display:flex;gap:12px;align-items:flex-start}
+  .item .icon{width:56px;height:56px;border-radius:10px;background:rgba(255,210,106,0.08);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--accent);font-size:20px}
+  .item .meta{flex:1}
+  .item .meta b{display:block;color:#fff}
+  .actor-circle{width:120px;height:120px;border-radius:999px;background:linear-gradient(180deg,#0b3b66,#06263f);display:flex;align-items:center;justify-content:center;border:6px solid rgba(255,210,106,0.06);box-shadow:0 8px 28px rgba(0,0,0,0.6)}
+  .actor-circle span{color:var(--accent);font-weight:800}
+  .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:16px;border-radius:12px}
+  .small{color:var(--muted);font-size:13px}
+  .cta{margin-top:14px}
+  .btn{background:var(--accent);color:#04162a;padding:12px 14px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
+  footer{margin-top:30px;padding:18px 0;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
+  @media(max-width:980px){.content{grid-template-columns:1fr}.hero{flex-direction:column}.logo img{width:60px;height:60px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo-row">
+      <div class="logo"><img src="https://www.canva.com/design/DAG7HSZy4yA/mu8vwt57FE4Chzke5lp3tA/screen"/><meta property="og:image:width" content="1024"/>  </div>
+      <div class="brand">
+        <h1>Écru School — Talent Production</h1>
+        <p>Курсы: от 3 лет и взрослые · Музыка · Актёрство · Модельная школа</p>
+      </div>
+    </div>
+    <nav>
+      <button class="nav-link" onclick="document.getElementById('top').scrollIntoView({behavior:'smooth'})">Главная</button>
+      <button class="nav-link" onclick="selectTab('music')">Музыкальные</button>
+      <button class="nav-link" onclick="selectTab('acting')">Актёрское</button>
+      <button class="nav-link" onclick="selectTab('speech')">Ораторское / Озвучка</button>
+      <button class="nav-link" onclick="selectTab('model')">Модельная школа</button>
+      <button class="nav-link" onclick="selectTab('mobile')">Мобилография</button>
+      <button class="nav-link" onclick="selectTab('web')">Веб-дизайн</button>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero-left">
+      <h2 class="headline">Развивай талант с Écru School</h2>
+      <p class="sub">Интенсивы и постоянные курсы для детей от 3 лет и взрослых. Профессиональные наставники, реальная практика и сцена.</p>
+      <div class="age-pill">Возраст: от 3 лет и взрослые</div>
+
+      <div class="tabs" style="margin-top:18px">
+        <button class="tab-btn active" data-tab="music" onclick="selectTab('music')">Музыкальные</button>
+        <button class="tab-btn" data-tab="acting" onclick="selectTab('acting')">Актёрское / Съёмки</button>
+        <button class="tab-btn" data-tab="speech" onclick="selectTab('speech')">Ораторское / Озвучка</button>
+        <button class="tab-btn" data-tab="model" onclick="selectTab('model')">Модельная школа</button>
+        <button class="tab-btn" data-tab="mobile" onclick="selectTab('mobile')">Мобилография</button>
+        <button class="tab-btn" data-tab="web" onclick="selectTab('web')">Веб-дизайн</button>
+      </div>
+
+      <div class="content" style="margin-top:18px">
+        <!-- Музыкальные -->
+        <div class="panel" id="panel-music">
+          <h3>Музыкальные направления</h3>
+          <p class="small">Вокал, гитара — удобно комбинировать и проходить кросс-навыки.</p>
+          <div class="list">
+            <div class="item">
+              <div class="icon">V</div>
+              <div class="meta"><b>Вокал</b><span class="small">Техника голоса, дыхание, исполнение и работа с микрофоном. Подготовка номеров для выступлений.</span></div>
+            </div>
+            <div class="item">
+              <div class="icon">G</div>
+              <div class="meta"><b>Гитара</b><span class="small">Базовая и продвинутая игра, аккомпанемент для вокала, разбор песен и аранжировки.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Актёрское -->
+        <div class="panel" id="panel-acting" style="display:none">
+          <h3>Актёрское мастерство и съёмки</h3>
+          <p class="small">Импровизация, сценическая речь, работа с камерой, сцены для портфолио.</p>
+          <div style="margin-top:12px;display:flex;gap:14px;align-items:center">
+            <div class="actor-circle"><span>ACT</span></div>
+            <div style="flex:1">
+              <div style="font-weight:700;color:#fff">Актёрское + Съёмки</div>
+              <div class="small">Курсы для начинающих и тех, кто хочет опыт на съёмочной площадке.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ораторское / Озвучка -->
+        <div class="panel" id="panel-speech" style="display:none">
+          <h3>Ораторское искусство и Озвучка</h3>
+          <p class="small">Развитие речи, дикции, эмоций и навыков озвучивания мультфильмов и роликов.</p>
+          <div class="list">
+            <div class="item">
+              <div class="icon">S</div>
+              <div class="meta"><b>Ораторское + Озвучка</b><span class="small">Техника речи, дикция, эмоция и работа над голосом для озвучивания персонажей мультфильмов.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Модельная школа -->
+        <div class="panel" id="panel-model" style="display:none">
+          <h3>👗 Модельная школа</h3>
+          <p class="small">Обучение дефиле, осанке, позированию, пластике движений и созданию портфолио. Работа с мимикой, эмоциональной выразительностью, стилем и образом. Участие в фотосессиях и видеопроектах, развитие уверенности на сцене и перед камерой.</p>
+        </div>
+
+        <!-- Мобилография -->
+        <div class="panel" id="panel-mobile" style="display:none">
+          <h3>📱 Мобилография</h3>
+          <p class="small">Съёмка на телефон, монтаж, цветокоррекция и создание коротких видео для соцсетей. Обучаем работе с ракурсами, композицией кадра, светом и освещением. Развитие сторителлинга, создание собственного визуального стиля, съёмка портретов и динамичных сцен. Практика на реальных локациях и разбор популярных техник для Reels и TikTok.</p>
+        </div>
+
+        <!-- Веб-дизайн -->
+        <div class="panel" id="panel-web" style="display:none">
+          <h3>💻 Веб-дизайн</h3>
+          <p class="small">Освой профессию будущего! На курсе вы научитесь создавать современные сайты и интерфейсы с нуля: дизайн страниц, работа с Figma, основы UX/UI, макеты и прототипирование. Практические проекты, реальные кейсы и подготовка портфолио гарантируют, что после курса вы сможете сразу создавать собственные сайты и интерфейсы.</p>
+        </div>
+
+        <!-- Запись -->
+        <div class="card" style="min-width:260px">
+          <h3>Записаться</h3>
+          <p class="small">Оставь заявку — мы подберём группу или индивидуальные занятия.</p>
+          <div style="margin-top:10px">
+            <input id="name" placeholder="Имя" style="width:100%;padding:10px;border-radius:10px;border:none;background:#081a33;color:#fff;margin-bottom:8px">
+            <input id="phone" placeholder="Телефон" style="width:100%;padding:10px;border-radius:10px;border:none;background:#081a33;color:#fff;margin-bottom:8px">
+            <select id="direction" style="width:100%;padding:10px;border-radius:10px;border:none;background:#081a33;color:#fff">
+              <option value="Музыкальные">Музыкальные</option>
+              <option value="Актёрское">Актёрское</option>
+              <option value="Ораторское / Озвучка">Ораторское / Озвучка</option>
+              <option value="Модельная школа">Модельная школа</option>
+              <option value="Мобилография">Мобилография</option>
+              <option value="Веб-дизайн">Веб-дизайн</option>
+            </select>
+            <div class="cta"><button class="btn" onclick="submit()">Отправить заявку</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside style="width:360px;display:flex;flex-direction:column;gap:14px">
+      <div class="card" style="padding:12px;display:flex;flex-direction:column;gap:8px;align-items:center">
+        <img src="https://www.canva.com/design/DAG7HSZy4yA/mu8vwt57FE4Chzke5lp3tA/screen" alt="logo" style="width:120px;border-radius:10px">
+        <div style="font-weight:700;color:#fff">Écru School</div>
+        <div class="small">Talent Production — профессиональные направления</div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0;color:#fff">Почему мы</h3>
+        <ul style="color:var(--muted);padding-left:18px">
+          <li>Опытные наставники и практические занятия</li>
+          <li>Выступления и съёмки в реальных проектах</li>
+          <li>Группы для детей от 3 лет и взрослых</li>
+        </ul>
+      </div>
+
+      <div class="card" style="text-align:center">
+        <div class="small">Контакты</div>
+        <div style="margin-top:8px;font-weight:700;color:var(--accent)">wa.me/77478042900</div>
+      </div>
+    </aside>
+  </section>
+
+  <footer>
+    <div>© Écru School · Talent Production</div>
+    <div>www.ecru.kz</div>
+  </footer>
+</div>
+
+<script>
+  function selectTab(name){
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active', b.dataset.tab===name));
+    ['music','acting','speech','model','mobile','web'].forEach(p=>{
+      const el = document.getElementById('panel-'+p);
+      if(el) el.style.display=(p===name)?'block':'none';
+    })
+  }
+
+  selectTab('music');
+
+  function submit(){
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const dir = document.getElementById('direction').value;
+    if(!name || !phone){ alert('Пожалуйста, укажите имя и телефон.'); return; }
+    const message = `Новая заявка с сайта:%0AИмя: ${name}%0AТелефон: ${phone}%0AНаправление: ${dir}`;
+    const waLink = `https://wa.me/77478042900?text=${message}`;
+    window.open(waLink, '_blank');
+    document.getElementById('name').value=''; document.getElementById('phone').value='';
+  }
+</script>
+</body>
+</html>
